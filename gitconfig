@@ -1,0 +1,21 @@
+[pager]
+  color = true
+[status]
+  color = true
+[diff]
+  color = true
+[user]
+	name = Greg Signal
+	email = greg@awesome.org.nz
+[alias]
+  st = status
+  ci = commit
+  br = branch
+  co = checkout
+  df = diff
+  hist = log --pretty=format:\"%h %ad (%cr) | %s%d [%an]\" --graph --date=short
+[branch "master"]
+  remote = origin
+  merge = refs/heads/master
+[ignore]
+	filemode = false
