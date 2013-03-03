@@ -19,3 +19,7 @@
   merge = refs/heads/master
 [ignore]
 	filemode = false
+[push]
+	default = upstream
+[core]
+	excludesfile = /home/greg/.gitignore_global
