@@ -23,3 +23,5 @@
 	default = upstream
 [core]
 	excludesfile = /home/greg/.gitignore_global
+[remote "origin"]
+	push = HEAD
