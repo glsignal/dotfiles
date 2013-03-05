@@ -5,6 +5,11 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
+# Define a helper for checking if a program exists
+fn_exists () {
+  command -v "$1" >/dev/null 2>&1
+}
+
 # Use vim as our editor
 export EDITOR=vim
 
@@ -77,8 +82,8 @@ if [ "$color_prompt" = yes ]; then
   PS1="${PS1} :: \[\033[00;36m\]\$(git_branch)\[\033[00m\]"
   if [ -x "$HOME/.rvm/bin/rvm-prompt" ]; then
     PS1="${PS1} :: \[\033[00;31m\]\$($HOME/.rvm/bin/rvm-prompt)\[\033[00m\]"
-  elif [ -x "$(which ruby)" ]; then
-    rb_version="$("$(which ruby)" -v | cut -d " " -f 1,2)"
+  elif fn_exists ruby; then
+    rb_version="$(ruby -v | cut -d " " -f 1,2)"
     PS1="${PS1} :: \[\033[00;31m\]\${rb_version}\[\033[00m\]"
   else
     PS1="${PS1} :: \[\033[00;31m\]no rubies\[\033[00m\]"

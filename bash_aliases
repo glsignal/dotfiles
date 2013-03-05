@@ -1,3 +1,7 @@
+fn_exists () {
+  command -v "$1" >/dev/null 2>&1
+}
+
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
@@ -17,7 +21,7 @@ alias l='ls -CF'
 lc () { latex $*.tex; dvips $*.dvi; ps2pdf $*.ps; }
 
 # set vi to run vim if vim is available
-if [ -x `which vim` ]; then
+if fn_exists vim; then
   alias vi='vim'
 fi
 
@@ -28,8 +32,7 @@ alias gc='git clone'
 alias be='bundle exec'
 
 # Start webserver in current directory
-python=$(which python)
-if [ -n "$python" ]; then
+if fn_exists python; then
   python_major=$(python -V 2>&1 | cut -d " " -f 2 | cut -d "." -f 1)
   if [ $python_major -lt 3 ]; then
     alias webme='python -m SimpleHTTPServer'
@@ -48,11 +51,11 @@ alias clock='watch -t -n1 "date +%T|figlet"'
 alias phpme='php -S localhost:4000'
 
 # Alias pbcopy/pbpaste if they aren't available and we have xsel
-if [ -x `which xsel` ]; then
-  if [ ! -x `which pbcopy` ]; then
+if fn_exists xsel; then
+  if ! fn_exists pbcopy; then
     alias pbcopy='xsel --clipboard --input'
   fi
-  if [ ! -x `which pbpaste` ]; then
+  if ! fn_exists pbpaste; then
     alias pbpaste='xsel --clipboard --output'
   fi
 fi
