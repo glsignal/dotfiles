@@ -55,3 +55,9 @@ if fn_exists xsel; then
     alias pbpaste='xsel --clipboard --output'
   fi
 fi
+
+# Start and stop PostgreSQL under Arch Linux quickly
+if [ -x $(which uname) ] && [[ "$(uname -r)" =~ .*ARCH.* ]]; then
+  alias pgstart='sudo systemctl start postgresql'
+  alias pgstop='sudo systemctl stop postgresql'
+fi
