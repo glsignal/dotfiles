@@ -11,7 +11,7 @@ fn_exists () {
 }
 
 # Use vim as our editor
-export EDITOR=vim
+export VISUAL=vim
 
 # don't put duplicate lines in the history. See bash(1) for more options
 # ... or force ignoredups and ignorespace
