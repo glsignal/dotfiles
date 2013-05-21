@@ -1,3 +1,9 @@
 if [ -f /etc/profile.d/vte.sh ]; then
   . /etc/profile.d/vte.sh
 fi
+
+# Start and stop PostgreSQL under Arch Linux quickly
+if [ -x $(which uname) ] && [[ "$(uname -r)" =~ .*ARCH.* ]]; then
+  alias pgstart='sudo systemctl start postgresql'
+  alias pgstop='sudo systemctl stop postgresql'
+fi

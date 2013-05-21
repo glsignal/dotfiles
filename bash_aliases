@@ -56,12 +56,6 @@ if fn_exists xsel; then
   fi
 fi
 
-# Start and stop PostgreSQL under Arch Linux quickly
-if [ -x $(which uname) ] && [[ "$(uname -r)" =~ .*ARCH.* ]]; then
-  alias pgstart='sudo systemctl start postgresql'
-  alias pgstop='sudo systemctl stop postgresql'
-fi
-
 function pvcp()
 {
   SOURCE=$1
