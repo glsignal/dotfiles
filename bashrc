@@ -135,6 +135,9 @@ fi
 # Add RVM to PATH for scripting
 PATH=$PATH:$HOME/.rvm/bin
 
+# Add location for arbitrary executables
+PATH=$PATH:$HOME/bin
+
 export LESS="-R"
 
 # load additional path dotfiles if they're present
@@ -146,4 +149,9 @@ fi
 # STM32 Toolchain
 if [ -f ~/.path/stm32 ]; then
   . ~/.path/stm32
+fi
+
+# Arch-specific
+if [ -f ~/.path/arch ]; then
+  . ~/.path/arch
 fi

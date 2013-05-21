@@ -61,3 +61,17 @@ if [ -x $(which uname) ] && [[ "$(uname -r)" =~ .*ARCH.* ]]; then
   alias pgstart='sudo systemctl start postgresql'
   alias pgstop='sudo systemctl stop postgresql'
 fi
+
+function pvcp()
+{
+  SOURCE=$1
+
+  if [ -d $2 ]
+    then
+        DESTINATION=$2/`basename $SOURCE`
+    else
+      DESTINATION=$2
+  fi
+
+  pv ${SOURCE} | > ${DESTINATION}
+}
