@@ -13,6 +13,8 @@ alias ll='ls -alF'
 alias la='ls -alh'
 alias l='ls -CF'
 
+alias path='echo $PATH | sed "s/:/\\`echo -e '\n'`/g"'
+
 # LaTeX compile alias
 lc () { latex $*.tex; dvips $*.dvi; ps2pdf $*.ps; }
 
