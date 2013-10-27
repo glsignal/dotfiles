@@ -133,12 +133,9 @@ PATH=$PATH:$HOME/.rvm/bin
 if [ -f ~/.prompt ];  then source ~/.prompt; fi
 if [ -f ~/.aliases ]; then source ~/.aliases; fi
 
-# Git completion
-if [ -f ~/.git-completion.bash ]; then
-  source ~/.git-completion.bash
-fi
-
-# Set pwd for new terminal instances that support it
+# Derp (vte; so gnome-terminal's tabs don't suck)
 if [ -f /etc/profile.d/vte.sh ]; then
   source /etc/profile.d/vte.sh
 fi
+
+# vim: set ts=2 sw=2 et:
