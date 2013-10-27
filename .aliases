@@ -15,9 +15,6 @@ alias l='ls -CF'
 
 alias path='echo $PATH | sed "s/:/\\`echo -e '\n'`/g"'
 
-# LaTeX compile alias
-lc () { latex $*.tex; dvips $*.dvi; ps2pdf $*.ps; }
-
 # set vi to run vim if vim is available
 if fn_exists vim; then
   alias vi='vim'
@@ -39,6 +36,15 @@ if fn_exists python; then
   fi
 fi
 
+# Control PostgreSQL and Redis with systemd
+if [ -x $(which uname) ] && [[ "$(uname -r)" =~ .*ARCH.* ]]; then
+  alias pgstart='sudo systemctl start postgresql'
+  alias pgstop='sudo systemctl stop postgresql'
+
+  alias rstart='sudo systemctl start redis'
+  alias rstop='sudo systemctl stop redis'
+fi
+
 # Start the rails app and drop into Pry
 alias pryme='bundle exec pry -r ./config/environment'
 
@@ -47,6 +53,9 @@ alias clock='watch -t -n1 "date +%T|figlet"'
 
 # PHP Development server (assuming PHP => 5.4.x)
 alias phpme='php -S localhost:4000'
+
+# LaTeX compile alias
+function lc () { latex $*.tex; dvips $*.dvi; ps2pdf $*.ps; }
 
 # Alias pbcopy/pbpaste if they aren't available and we have xsel
 if fn_exists xsel; then
@@ -71,3 +80,5 @@ function pvcp()
 
   pv ${SOURCE} | > ${DESTINATION}
 }
+
+# vim:set ft=zsh:

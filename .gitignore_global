@@ -1,0 +1,4 @@
+# Ignore Ruby project-specific dotfiles
+.rvmrc
+.ruby-gemset
+.DS_Store

@@ -5,8 +5,8 @@
 [diff]
   color = true
 [user]
-	name = Greg Signal
-	email = greg@awesome.org.nz
+  name = Greg Signal
+  email = greg@awesome.org.nz
 [alias]
   st = status
   ci = commit
@@ -18,10 +18,10 @@
   remote = origin
   merge = refs/heads/master
 [ignore]
-	filemode = false
+  filemode = false
 [push]
-	default = upstream
+  default = upstream
 [core]
-	excludesfile = /home/greg/.gitignore_global
+  excludesfile = /home/greg/.gitignore_global
 [remote "origin"]
-	push = HEAD
+  push = HEAD
