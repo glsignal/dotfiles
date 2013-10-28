@@ -26,6 +26,9 @@ alias gc='git clone'
 
 alias be='bundle exec'
 
+# Easily get to git projects
+function g () { cd ~/git/$* }
+
 # set vi to run vim if vim is available
 if fn_exists vim; then
   alias vi='vim'
