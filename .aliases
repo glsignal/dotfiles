@@ -32,7 +32,7 @@ if fn_exists vim; then
 fi
 
 # LaTeX compile alias
-function lc () { latex $*.tex; dvips $*.dvi; ps2pdf $*.ps; }
+function lc () { latex $*.tex && dvips $*.dvi && ps2pdf $*.ps }
 
 # Alias pbcopy/pbpaste if they aren't available and we have xsel
 if fn_exists xsel; then
