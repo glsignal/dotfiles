@@ -36,6 +36,9 @@ export LS_COLORS
 #------------------------------
 # Keybindings
 #------------------------------
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey -M vicmd v edit-command-line
 bindkey -v
 typeset -g -A key
 #bindkey '\e[3~' delete-char
