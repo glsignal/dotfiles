@@ -141,4 +141,10 @@ if [ -f /etc/profile.d/vte.sh ]; then
   source /etc/profile.d/vte.sh
 fi
 
+# z-zsh
+if [ -f ~/.z.sh ]; then source ~/.z.sh; fi
+
+
+export PATH=$PATH:/home/greg/build/amazon-eb/AWS-ElasticBeanstalk-CLI-2.5.1/eb/linux/python3
+
 # vim: set ts=2 sw=2 et:

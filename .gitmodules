@@ -1,3 +1,6 @@
 [submodule ".vim"]
 	path = .vim
 	url = https://github.com/glsignal/vim-conf
+[submodule "z-zsh"]
+	path = z-zsh
+	url = https://github.com/rupa/z
