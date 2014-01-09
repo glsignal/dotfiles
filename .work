@@ -1,0 +1,2 @@
+export OPSCODE_USER="glsignal"
+export OPSCODE_ORGNAME="twingl"

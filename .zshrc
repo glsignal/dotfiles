@@ -135,6 +135,7 @@ PATH=$PATH:$HOME/.rvm/bin
 
 if [ -f ~/.prompt ];  then source ~/.prompt; fi
 if [ -f ~/.aliases ]; then source ~/.aliases; fi
+if [ -f ~/.work ];    then source ~/.work; fi
 
 # Derp (vte; so gnome-terminal's tabs don't suck)
 if [ -f /etc/profile.d/vte.sh ]; then
