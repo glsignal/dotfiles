@@ -19,6 +19,12 @@ ruby_version() {
   fi
 }
 
+python_version() {
+  if which pyenv &> /dev/null; then
+    pyenv version | cut -f 1 -d' '
+  fi
+}
+
 setprompt() {
   # load some modules
   setopt prompt_subst
@@ -46,7 +52,7 @@ setprompt() {
   fi
 
   # set the prompt
-  PS1=$'\n${PR_USER}[${PR_HOST}]${vcs_info_msg_0_} :: ${PR_RED}$(ruby_version)\n${PR_CYAN}%~${PR_NO_COLOR} ${PR_USER_OP}>'
+  PS1=$'\n${PR_USER}[${PR_HOST}]${vcs_info_msg_0_} :: ${PR_RED}$(ruby_version) ${PR_NO_COLOR}:: ${PR_BLUE}$(python_version)\n${PR_CYAN}%~${PR_NO_COLOR} ${PR_USER_OP}>'
   PS2=$'%_>'
   RPROMPT=$'%!'
 }
