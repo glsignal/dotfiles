@@ -23,6 +23,7 @@ alias l='ls -CF'
 alias gst='git status'
 alias gck='git checkout'
 alias gc='git clone'
+alias gb='git branch'
 
 alias be='bundle exec'
 
@@ -93,5 +94,8 @@ alias clock='watch -t -n1 "date +%T|figlet"'
 
 # PHP Development server (assuming PHP => 5.4.x)
 alias phpme='php -S localhost:4000'
+
+# Cast
+alias cast='DISPLAY=:0 leapcast --user_agent TV --fullscreen'
 
 # vim:set ft=zsh:

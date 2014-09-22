@@ -147,9 +147,8 @@ fi
 
 # z-zsh
 if [ -f ~/.z.sh ]; then source ~/.z.sh; fi
+if [ -f ~/.npm-completion ];  then source ~/.npm-completion; fi
 
-
-export PATH=$PATH:/home/greg/build/amazon-eb/AWS-ElasticBeanstalk-CLI-2.5.1/eb/linux/python3
-export PATH=/Applications/Postgres.app/Contents/MacOS/bin:$PATH
+PATH=$PATH:/opt/android-sdk/tools
 
 # vim: set ts=2 sw=2 et:
