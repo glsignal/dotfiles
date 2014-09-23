@@ -136,9 +136,10 @@ PATH=$PATH:$HOME/.rvm/bin
 # Load PyEnv function
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 
-if [ -f ~/.prompt ];  then source ~/.prompt; fi
-if [ -f ~/.aliases ]; then source ~/.aliases; fi
-if [ -f ~/.work ];    then source ~/.work; fi
+if [ -f ~/.prompt ];      then source ~/.prompt; fi
+if [ -f ~/.aliases ];     then source ~/.aliases; fi
+if [ -f ~/.work ];        then source ~/.work; fi
+if [ -f ~/.credentials ]; then source ~/.credentials; fi
 
 # Derp (vte; so gnome-terminal's tabs don't suck)
 if [ -f /etc/profile.d/vte.sh ]; then
