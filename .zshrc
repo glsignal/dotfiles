@@ -148,6 +148,7 @@ fi
 
 # z-zsh
 if [ -f ~/.z.sh ]; then source ~/.z.sh; fi
+if [ -f ~/.zsh-syntax-highlighting.zsh ]; then source ~/.zsh-syntax-highlighting.zsh; fi
 if [ -f ~/.npm-completion ];  then source ~/.npm-completion; fi
 
 PATH=$PATH:/opt/android-sdk/tools
