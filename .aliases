@@ -77,12 +77,14 @@ fi
 
 # Start webserver in current directory
 if fn_exists python; then
-  python_major=$(python -V 2>&1 | cut -d " " -f 2 | cut -d "." -f 1)
-  if [ $python_major -lt 3 ]; then
-    alias webme='python -m SimpleHTTPServer'
-  else
-    alias webme='python -m http.server'
-  fi
+  function webme () {
+    python_major=$(python -V 2>&1 | cut -d " " -f 2 | cut -d "." -f 1)
+    if [ $python_major -lt 3 ]; then
+      python -m SimpleHTTPServer
+    else
+      python -m http.server
+    fi
+  }
 fi
 
 # Control PostgreSQL and Redis with systemd
