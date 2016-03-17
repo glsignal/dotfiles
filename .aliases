@@ -48,6 +48,14 @@ if fn_exists xsel; then
   fi
 fi
 
+if fn_exists xdg-open; then
+  alias o='xdg-open'
+fi
+
+if fn_exists open; then
+  alias o='open'
+fi
+
 # Display copy progress using pv
 if fn_exists pv; then
   function pvcp() {
