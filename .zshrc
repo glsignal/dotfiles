@@ -129,12 +129,18 @@ case $TERM in
     ;;
 esac
 
-# Load RVM function
-PATH=$PATH:$HOME/.rvm/bin
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
-
 # Load PyEnv function
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+
+# Load chruby
+if [ -f /usr/share/chruby/chruby.sh ]; then source /usr/share/chruby/chruby.sh; fi
+if [ -f /usr/share/chruby/auto.sh ];   then source /usr/share/chruby/auto.sh; fi
+
+# Load nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 if [ -f ~/.prompt ];      then source ~/.prompt; fi
 if [ -f ~/.aliases ];     then source ~/.aliases; fi
