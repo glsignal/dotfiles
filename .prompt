@@ -10,18 +10,26 @@ zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:git*' formats " %{$terminfo[sgr0]%}:: %{${fg[white]}%}%r %{$terminfo[sgr0]%}%{[${fg[white]}%}%b%{$terminfo[sgr0]%}][%{${fg[red]}%}%u%{${fg[yellow]}%}%c%{${fg[white]}%}%m%{$terminfo[sgr0]]%}"
 
 ruby_version() {
-  if which rvm-prompt &> /dev/null; then
-    rvm-prompt i v p g
+  if which ruby &> /dev/null; then
+    ruby -v | cut -d' ' -f2
   else
-    if which rbenv &> /dev/null; then
-      rbenv version | sed -e "s/ (set.*$//"
-    fi
+    echo none
+  fi
+}
+
+node_version() {
+  if which node &> /dev/null; then
+    node -v | cut -d' ' -f2
+  else
+    echo none
   fi
 }
 
 python_version() {
-  if which pyenv &> /dev/null; then
-    pyenv version | cut -f 1 -d' '
+  if which python &> /dev/null; then
+    python --version 2>&1 2>/dev/null | cut -d' ' -f2
+  else
+    echo none
   fi
 }
 
@@ -52,7 +60,7 @@ setprompt() {
   fi
 
   # set the prompt
-  PS1=$'\n${PR_USER}[${PR_HOST}]${vcs_info_msg_0_} :: ${PR_RED}$(ruby_version) ${PR_NO_COLOR}:: ${PR_BLUE}$(python_version)\n${PR_CYAN}%~${PR_NO_COLOR} ${PR_USER_OP}>'
+  PS1=$'\n${PR_USER}[${PR_HOST}]${vcs_info_msg_0_} :: ${PR_RED}$(ruby_version) ${PR_NO_COLOR}:: ${PR_YELLOW}$(node_version) ${PR_NO_COLOR}:: ${PR_BLUE}$(python_version)\n${PR_CYAN}%~${PR_NO_COLOR} ${PR_USER_OP}>'
   PS2=$'%_>'
   RPROMPT=$'%!'
 }
