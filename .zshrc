@@ -135,27 +135,25 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 
 # Load chruby
-if [ -f /usr/share/chruby/chruby.sh ]; then source /usr/share/chruby/chruby.sh; fi
-if [ -f /usr/share/chruby/auto.sh ];   then source /usr/share/chruby/auto.sh; fi
+[ -s /usr/share/chruby/chruby.sh ] && . /usr/share/chruby/chruby.sh
+[ -s /usr/share/chruby/auto.sh ]   && . /usr/share/chruby/auto.sh
 
 # Load nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
-if [ -f ~/.prompt ];      then source ~/.prompt; fi
-if [ -f ~/.aliases ];     then source ~/.aliases; fi
-if [ -f ~/.work ];        then source ~/.work; fi
-if [ -f ~/.credentials ]; then source ~/.credentials; fi
+[ -s ~/.prompt ]      && . ~/.prompt
+[ -s ~/.aliases ]     && . ~/.aliases
+[ -s ~/.work ]        && . ~/.work
+[ -s ~/.credentials ] && . ~/.credentials
 
 # Derp (vte; so gnome-terminal's tabs don't suck)
-if [ -f /etc/profile.d/vte.sh ]; then
-  source /etc/profile.d/vte.sh
-fi
+[ -s /etc/profile.d/vte.sh ] && . /etc/profile.d/vte.sh
 
 # z-zsh
-if [ -f ~/.z.sh ]; then source ~/.z.sh; fi
-if [ -f ~/.zsh-syntax-highlighting.zsh ]; then source ~/.zsh-syntax-highlighting.zsh; fi
-if [ -f ~/.npm-completion ];  then source ~/.npm-completion; fi
+[ -s ~/.z.sh ]                        && . ~/.z.sh
+[ -s ~/.zsh-syntax-highlighting.zsh ] && . ~/.zsh-syntax-highlighting.zsh
+[ -s ~/.npm-completion ]              && . ~/.npm-completion
 
 PATH=$PATH:/opt/android-sdk/tools
 
