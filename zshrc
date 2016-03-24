@@ -158,6 +158,4 @@ export NVM_DIR="$HOME/.nvm"
 # Machine specific config
 [ -s ~/.machine-specific ] && . ~/.machine-specific
 
-PATH=$PATH:/opt/android-sdk/tools
-
 # vim: set ts=2 sw=2 et:
