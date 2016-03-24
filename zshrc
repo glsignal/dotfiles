@@ -155,6 +155,9 @@ export NVM_DIR="$HOME/.nvm"
 [ -s ~/.zsh-syntax-highlighting.zsh ] && . ~/.zsh-syntax-highlighting.zsh
 [ -s ~/.npm-completion ]              && . ~/.npm-completion
 
+# Machine specific config
+[ -s ~/.machine-specific ] && . ~/.machine-specific
+
 PATH=$PATH:/opt/android-sdk/tools
 
 # vim: set ts=2 sw=2 et:

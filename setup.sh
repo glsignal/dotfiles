@@ -22,10 +22,14 @@ else
   echo "Please install git"
 fi
 
+echo "Creating machine-specific config file"
+touch "$CURRENT_DIR/machine-specific"
+
 for f in aliases \
          gemrc \
          gitconfig \
          gitignore_global \
+         machine-specific \
          npm-completion \
          prompt \
          ruby-version \
