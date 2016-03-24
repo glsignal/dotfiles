@@ -22,6 +22,6 @@
 [push]
   default = upstream
 [core]
-  excludesfile = /home/greg/.gitignore_global
+  excludesfile = ~/.gitignore_global
 [remote "origin"]
   push = HEAD
