@@ -34,7 +34,6 @@ for f in aliases \
          prompt \
          ruby-version \
          screenrc \
-         work \
          zprofile \
          zshrc
 do

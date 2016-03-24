@@ -144,7 +144,6 @@ export NVM_DIR="$HOME/.nvm"
 
 [ -s ~/.prompt ]      && . ~/.prompt
 [ -s ~/.aliases ]     && . ~/.aliases
-[ -s ~/.work ]        && . ~/.work
 [ -s ~/.credentials ] && . ~/.credentials
 
 # Derp (vte; so gnome-terminal's tabs don't suck)
