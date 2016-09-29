@@ -129,9 +129,6 @@ case $TERM in
     ;;
 esac
 
-[ -s ~/.asdf/asdf.sh ]               && . ~/.asdf/asdf.sh
-[ -s ~/.asdf/completions/asdf.bash ] && . ~/.asdf/completions/asdf.bash
-
 [ -s ~/.prompt ]      && . ~/.prompt
 [ -s ~/.aliases ]     && . ~/.aliases
 [ -s ~/.credentials ] && . ~/.credentials
@@ -143,6 +140,12 @@ esac
 [ -s ~/.z.sh ]                    && . ~/.z.sh
 [ -s ~/.zsh-syntax-highlighting ] && . ~/.zsh-syntax-highlighting
 [ -s ~/.npm-completion ]          && . ~/.npm-completion
+
+# asdf-vm (multi language version manager)
+if [ -d ~/.asdf ]; then
+  . "$HOME/.asdf/asdf.sh"
+  . "$HOME/.asdf/completions/asdf.bash"
+fi
 
 # Machine specific config
 [ -s ~/.machine-specific ] && . ~/.machine-specific
