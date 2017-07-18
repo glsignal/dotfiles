@@ -13,7 +13,9 @@
   br = branch
   co = checkout
   df = diff
-  hist = log --pretty=format:\"%h %ad (%cr) | %s%d [%an]\" --graph --date=short
+  hist = log --pretty=format:\"%h %ad (%cr) | %s%C(auto)%d%Creset [%an]\" --graph --date=short
+  wdiff = diff --word-diff
+  wshow = show --word-diff
 [branch "master"]
   remote = origin
   merge = refs/heads/master
