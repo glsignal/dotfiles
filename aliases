@@ -49,7 +49,7 @@ if fn_exists xsel; then
 fi
 
 if fn_exists xdg-open; then
-  alias o='xdg-open'
+  alias o='gio open'
 fi
 
 if fn_exists open; then
