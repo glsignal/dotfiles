@@ -10,8 +10,10 @@ zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:git*' formats " %{$terminfo[sgr0]%}:: %{${fg[white]}%}%r %{$terminfo[sgr0]%}%{[${fg[white]}%}%b%{$terminfo[sgr0]%}][%{${fg[red]}%}%u%{${fg[yellow]}%}%c%{${fg[white]}%}%m%{$terminfo[sgr0]]%}"
 
 ruby_version() {
-  if which ruby &> /dev/null; then
+  if which ruby &> /dev/null && ruby -v &> /dev/null; then
     ruby -v | cut -d' ' -f2
+  elif which jruby &> /dev/null && jruby -v &> /dev/null; then
+    echo "jruby $(jruby -v | cut -d' ' -f2)"
   else
     echo none
   fi
