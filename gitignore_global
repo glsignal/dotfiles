@@ -2,3 +2,16 @@
 .rvmrc
 .ruby-gemset
 .DS_Store
+
+# dev shite
+.tool-versions
+# Dockerfile
+# docker-compose.yml
+
+node_modules/
+
+docker-shared/
+
+.vscode/
+
+public/packs
