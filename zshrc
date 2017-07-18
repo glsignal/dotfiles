@@ -129,18 +129,8 @@ case $TERM in
     ;;
 esac
 
-# Load PyEnv function
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
-
-# Load chruby
-[ -s /usr/share/chruby/chruby.sh ] && . /usr/share/chruby/chruby.sh
-[ -s /usr/share/chruby/auto.sh ]   && . /usr/share/chruby/auto.sh
-
-# Load nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s ~/.asdf/asdf.sh ]               && . ~/.asdf/asdf.sh
+[ -s ~/.asdf/completions/asdf.bash ] && . ~/.asdf/completions/asdf.bash
 
 [ -s ~/.prompt ]      && . ~/.prompt
 [ -s ~/.aliases ]     && . ~/.aliases
