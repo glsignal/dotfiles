@@ -140,9 +140,9 @@ esac
 [ -s /etc/profile.d/vte.sh ] && . /etc/profile.d/vte.sh
 
 # z-zsh
-[ -s ~/.z.sh ]                        && . ~/.z.sh
-[ -s ~/.zsh-syntax-highlighting.zsh ] && . ~/.zsh-syntax-highlighting.zsh
-[ -s ~/.npm-completion ]              && . ~/.npm-completion
+[ -s ~/.z.sh ]                    && . ~/.z.sh
+[ -s ~/.zsh-syntax-highlighting ] && . ~/.zsh-syntax-highlighting
+[ -s ~/.npm-completion ]          && . ~/.npm-completion
 
 # Machine specific config
 [ -s ~/.machine-specific ] && . ~/.machine-specific
