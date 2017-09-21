@@ -27,3 +27,5 @@
   excludesfile = ~/.gitignore_global
 [remote "origin"]
   push = HEAD
+[init]
+  templatedir = ~/.git_template

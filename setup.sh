@@ -28,6 +28,7 @@ touch "$CURRENT_DIR/machine-specific"
 for f in aliases \
          gemrc \
          gitconfig \
+         git_templates \
          gitignore_global \
          machine-specific \
          npm-completion \
