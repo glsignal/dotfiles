@@ -35,6 +35,7 @@ for f in aliases \
          prompt \
          ruby-version \
          screenrc \
+         tmux.conf \
          zprofile \
          zshrc
 do
