@@ -14,7 +14,7 @@ fn_exists () {
 # History
 #------------------------------
 HISTFILE=~/.histfile
-HISTSIZE=1000
+HISTSIZE=100000
 SAVEHIST=100000
 HISTCONTROL=ignoredups:ignorespace
 
