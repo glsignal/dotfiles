@@ -26,6 +26,13 @@ alias gc='git clone'
 alias gb='git branch'
 
 alias be='bundle exec'
+alias open='xdg-open'
+
+alias tmcopy='tmux show-buffer | pbcopy'
+
+function travis () {
+  open "https://travis-ci.com/$(git remote get-url origin | grep -oE "[^\/:]\w+/[^\.]+")"
+}
 
 # Easily get to git projects
 function g () { cd ~/git/$* }
@@ -107,5 +114,19 @@ alias phpme='php -S localhost:4000'
 
 # Cast
 alias cast='DISPLAY=:0 leapcast --user_agent TV --fullscreen'
+
+function appearin () {
+  local LINK="https://appear.in/$(uuidgen)";
+
+  echo $LINK | pbcopy;
+  echo "Link to $LINK copied to clipboard";
+}
+
+function fury-push () {
+  local TAG=$1
+  local REV=$(git rev-list -n1 $TAG)
+
+  git push fury $REV:master -f
+}
 
 # vim:set ft=zsh:
