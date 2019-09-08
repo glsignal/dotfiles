@@ -3,7 +3,7 @@
 # ==============================================================================
 
 # Show what's in the path
-alias path='echo $PATH | sed "s/:/\\`echo -e '\n'`/g"'
+alias path='echo $PATH | tr ":" "\n"'
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
