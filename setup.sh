@@ -43,3 +43,9 @@ do
   echo "$CURRENT_DIR/$f -> $HOME/.$f"
 	ln -s "$CURRENT_DIR/$f" "$HOME/.$f"
 done
+
+if ! [[ -d "$HOME/.config/git" ]]; then
+  mkdir -p "$HOME/.config/git";
+fi
+echo "$CURRENT_DIR/config/git/template -> $HOME/.config/git/template"
+ln -s "$CURRENT_DIR/config/git/template" "$HOME/.config/git/template"
