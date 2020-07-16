@@ -15,3 +15,5 @@ docker-shared/
 .vscode/
 
 public/packs
+
+dump.rdb

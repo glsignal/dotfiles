@@ -1,3 +1,5 @@
+[init]
+  templateDir = ~/.config/git/template/
 [pager]
   color = true
 [status]
@@ -22,10 +24,10 @@
 [ignore]
   filemode = false
 [push]
-  default = upstream
+  default = current
 [core]
   excludesfile = ~/.gitignore_global
 [remote "origin"]
   push = HEAD
-[init]
-  templatedir = ~/.git_template
+[merge]
+  tool = vimdiff
