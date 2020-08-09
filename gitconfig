@@ -29,5 +29,9 @@
   excludesfile = ~/.gitignore_global
 [remote "origin"]
   push = HEAD
+[init]
+  templatedir = ~/.git_template
 [merge]
-  tool = vimdiff
+	tool = vimdiff
+[pull]
+	ff = only
