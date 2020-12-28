@@ -132,4 +132,6 @@ function fury-push () {
   git push fury $REV:master -f
 }
 
+alias v='asdf current'
+
 # vim:set ft=zsh:
