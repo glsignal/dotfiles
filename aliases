@@ -26,7 +26,10 @@ alias gc='git clone'
 alias gb='git branch'
 
 alias be='bundle exec'
-alias open='xdg-open'
+
+if fn_exists xdg-open; then
+  alias open='xdg-open'
+fi
 
 alias tmcopy='tmux show-buffer | pbcopy'
 

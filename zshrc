@@ -78,13 +78,12 @@ man() {
     man "$@"
 }
 
-#------------------------------
-# Comp stuff
-#------------------------------
-zmodload zsh/complist
-autoload -Uz compinit
-compinit
-zstyle :compinstall filename '${HOME}/.zshrc'
+# asdf-vm (multi language version manager)
+if [ -d ~/.asdf ]; then
+  . "$HOME/.asdf/asdf.sh"
+  # append completions to fpath
+  fpath=(${ASDF_DIR}/completions $fpath)
+fi
 
 #- buggy
 zstyle ':completion:*:descriptions' format '%U%B%d%b%u'
@@ -101,9 +100,6 @@ zstyle ':completion:*:kill:*'   force-list always
 
 zstyle ':completion:*:*:killall:*' menu yes select
 zstyle ':completion:*:killall:*'   force-list always
-
-#- complete pacman-color the same as pacman
-compdef _pacman pacman-color=pacman
 
 #------------------------------
 # Window title
@@ -141,13 +137,19 @@ esac
 [ -s ~/.zsh-syntax-highlighting ] && . ~/.zsh-syntax-highlighting
 [ -s ~/.npm-completion ]          && . ~/.npm-completion
 
-# asdf-vm (multi language version manager)
-if [ -d ~/.asdf ]; then
-  . "$HOME/.asdf/asdf.sh"
-  . "$HOME/.asdf/completions/asdf.bash"
-fi
-
 # Machine specific config
 [ -s ~/.machine-specific ] && . ~/.machine-specific
+
+#------------------------------
+# Comp stuff
+#------------------------------
+zmodload zsh/complist
+autoload -Uz compinit
+
+compinit
+zstyle :compinstall filename '${HOME}/.zshrc'
+
+#- complete pacman-color the same as pacman
+compdef _pacman pacman-color=pacman
 
 # vim: set ts=2 sw=2 et:
