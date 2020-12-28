@@ -62,7 +62,7 @@ setprompt() {
   fi
 
   # set the prompt
-  PS1=$'\n${PR_USER}[${PR_HOST}]${vcs_info_msg_0_} :: ${PR_RED}$(ruby_version) ${PR_NO_COLOR}:: ${PR_YELLOW}$(node_version) ${PR_NO_COLOR}:: ${PR_BLUE}$(python_version)\n${PR_CYAN}%~${PR_NO_COLOR} ${PR_USER_OP}>'
+  PS1=$'\n${PR_USER}[${PR_HOST}]${vcs_info_msg_0_} \n${PR_CYAN}%~${PR_NO_COLOR} ${PR_USER_OP}> '
   PS2=$'%_>'
   RPROMPT=$'%!'
 }

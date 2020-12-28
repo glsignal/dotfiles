@@ -110,7 +110,9 @@ case $TERM in
       vcs_info
       print -Pn "\e]0;[%n@%M][%~]%#\a"
     }
-    preexec () { print -Pn "\e]0;[%n@%M][%~]%# ($1)\a" }
+    preexec () {
+      print -Pn "\e]0;[%n@%M][%~]%# ($1)\a"
+    }
     ;;
   screen|screen-256color)
     precmd () {
