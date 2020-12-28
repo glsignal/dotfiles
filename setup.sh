@@ -49,3 +49,6 @@ if ! [[ -d "$HOME/.config/git" ]]; then
 fi
 echo "$CURRENT_DIR/config/git/template -> $HOME/.config/git/template"
 ln -s "$CURRENT_DIR/config/git/template" "$HOME/.config/git/template"
+
+echo "$CURRENT_DIR/config/kitty -> $HOME/.config/kitty"
+ln -s "$CURRENT_DIR/config/kitty" "$HOME/.config/kitty"
