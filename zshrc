@@ -21,7 +21,7 @@ HISTCONTROL=ignoredups:ignorespace
 #------------------------------
 # Variables
 #------------------------------
-export BROWSER="google-chrome"
+export BROWSER="firefox"
 export EDITOR="vim"
 export VISUAL="vim"
 #export PAGER="vimpager"
