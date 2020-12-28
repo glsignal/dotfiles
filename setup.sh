@@ -48,7 +48,13 @@ if ! [[ -d "$HOME/.config/git" ]]; then
   mkdir -p "$HOME/.config/git";
 fi
 echo "$CURRENT_DIR/config/git/template -> $HOME/.config/git/template"
-ln -s "$CURRENT_DIR/config/git/template" "$HOME/.config/git/template"
+ln -his "$CURRENT_DIR/config/git/template" "$HOME/.config/git/template"
 
 echo "$CURRENT_DIR/config/kitty -> $HOME/.config/kitty"
-ln -s "$CURRENT_DIR/config/kitty" "$HOME/.config/kitty"
+ln -his "$CURRENT_DIR/config/kitty" "$HOME/.config/kitty"
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  ln -is "$HOME/.config/kitty/kitty.macos.conf" "$HOME/.config/kitty/kitty.conf"
+else
+  ln -is "$HOME/.config/kitty/kitty.linux.conf" "$HOME/.config/kitty/kitty.conf"
+fi
