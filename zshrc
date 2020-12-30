@@ -127,6 +127,18 @@ case $TERM in
     ;;
 esac
 
+#------------------------------
+# Comp stuff
+#------------------------------
+zmodload zsh/complist
+autoload -Uz compinit
+
+compinit
+zstyle :compinstall filename '${HOME}/.zshrc'
+
+#- complete pacman-color the same as pacman
+compdef _pacman pacman-color=pacman
+
 [ -s ~/.prompt ]      && . ~/.prompt
 [ -s ~/.aliases ]     && . ~/.aliases
 [ -s ~/.credentials ] && . ~/.credentials
@@ -141,17 +153,5 @@ esac
 
 # Machine specific config
 [ -s ~/.machine-specific ] && . ~/.machine-specific
-
-#------------------------------
-# Comp stuff
-#------------------------------
-zmodload zsh/complist
-autoload -Uz compinit
-
-compinit
-zstyle :compinstall filename '${HOME}/.zshrc'
-
-#- complete pacman-color the same as pacman
-compdef _pacman pacman-color=pacman
 
 # vim: set ts=2 sw=2 et:
