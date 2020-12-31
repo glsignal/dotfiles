@@ -139,6 +139,8 @@ zstyle :compinstall filename '${HOME}/.zshrc'
 #- complete pacman-color the same as pacman
 compdef _pacman pacman-color=pacman
 
+export FZF_DEFAULT_COMMAND='rg --files'
+
 [ -s ~/.prompt ]      && . ~/.prompt
 [ -s ~/.aliases ]     && . ~/.aliases
 [ -s ~/.credentials ] && . ~/.credentials
