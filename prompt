@@ -35,6 +35,19 @@ python_version() {
   fi
 }
 
+pr_user() {
+  echo "%(!.${PR_RED}.${PR_WHITE})%(!.[! %n !].%n)${PR_NO_COLOR}"
+}
+
+function pr_user_op() {
+  local PR_PRIV='%(!.#.>)'
+  local PR_ART_IDLE='( ᵕ‿ᵕ%)つ━★ ༓･*˚⁺‧'
+  local PR_ART_ERR='( ✧﹏✧%)!!   ☆⌒･⌒ '
+  local PR_ART="%(0?.${PR_MAGENTA}${PR_ART_IDLE}.${PR_RED}${PR_ART_ERR})"
+
+  echo "${PR_ART}${PR_PRIV}${PR_NO_COLOR}"
+}
+
 setprompt() {
   # load some modules
   setopt prompt_subst
@@ -45,20 +58,14 @@ setprompt() {
   done
   PR_NO_COLOR="%{$terminfo[sgr0]%}"
 
-  # Check the UID
-  if [[ $UID -eq 0 ]]; then # root
-    eval PR_USER='${PR_RED}(%n)${PR_NO_COLOR}'
-    eval PR_USER_OP='${PR_RED}%#${PR_NO_COLOR}'
-  else
-    eval PR_USER='${PR_WHITE}%n${PR_NO_COLOR}'
-    eval PR_USER_OP='${PR_MAGENTA}( ᵕ‿ᵕ)つ━★\ ༓･*˚⁺‧\>${PR_NO_COLOR}'
-  fi
 
   # Check if we are on SSH or not
   # set the prompt
-  PS1=$'\n${PR_USER} :: ${PR_BLUE}%~${PR_NO_COLOR} ${vcs_info_msg_0_} \n${PR_USER_OP} '
+  PS1=$'\n''$(pr_user) :: ${PR_BLUE}%~${PR_NO_COLOR} ${vcs_info_msg_0_} '$'\n''$(pr_user_op) '
   PS2=$'%_>'
   RPROMPT=$'%!'
 }
 
 setprompt
+
+# vim: set ts=2 sw=2 ft=zsh et:
