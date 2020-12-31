@@ -51,7 +51,7 @@ setprompt() {
     eval PR_USER_OP='${PR_RED}%#${PR_NO_COLOR}'
   else
     eval PR_USER='${PR_WHITE}%n${PR_NO_COLOR}'
-    eval PR_USER_OP='${PR_MAGENTA}( ᵕᴗᵕ)つ━★\ ༓･*˚⁺‧\>${PR_NO_COLOR}'
+    eval PR_USER_OP='${PR_MAGENTA}( ᵕ‿ᵕ)つ━★\ ༓･*˚⁺‧\>${PR_NO_COLOR}'
   fi
 
   # Check if we are on SSH or not
