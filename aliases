@@ -1,6 +1,4 @@
-# ==============================================================================
-# Generally useful terminal aliases
-# ==============================================================================
+# vim: set ts=2 sw=2 ft=zsh:
 
 # Show what's in the path
 alias path='echo $PATH | tr ":" "\n"'
@@ -15,21 +13,13 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-# some more ls aliases
 alias ll='ls -alF'
 alias la='ls -alh'
 alias l='ls -CF'
 
 alias gst='git status'
-alias gck='git checkout'
-alias gc='git clone'
-alias gb='git branch'
 
 alias be='bundle exec'
-
-if fn_exists xdg-open; then
-  alias open='xdg-open'
-fi
 
 alias tmcopy='tmux show-buffer | pbcopy'
 
@@ -45,40 +35,12 @@ if fn_exists vim; then
   alias vi='vim'
 fi
 
-# LaTeX compile alias
-function lc () { latex $*.tex && dvips $*.dvi && ps2pdf $*.ps }
-
-# Alias pbcopy/pbpaste if they aren't available and we have xsel
-if fn_exists xsel; then
-  if ! fn_exists pbcopy; then
-    alias pbcopy='xsel --clipboard --input'
-  fi
-  if ! fn_exists pbpaste; then
-    alias pbpaste='xsel --clipboard --output'
-  fi
-fi
-
 if fn_exists xdg-open; then
-  alias o='gio open'
+  alias open='xdg-open'
 fi
 
 if fn_exists open; then
   alias o='open'
-fi
-
-# Display copy progress using pv
-if fn_exists pv; then
-  function pvcp() {
-    SOURCE=$1
-
-    if [ -d $2 ]; then
-      DESTINATION=$2/`basename $SOURCE`
-    else
-      DESTINATION=$2
-    fi
-
-    pv ${SOURCE} | > ${DESTINATION}
-  }
 fi
 
 # ==============================================================================
@@ -97,34 +59,6 @@ if fn_exists python; then
   }
 fi
 
-# Control PostgreSQL and Redis with systemd
-if [ -x $(which uname) ] && [[ "$(uname -r)" =~ .*ARCH.* ]]; then
-  alias pgstart='sudo systemctl start postgresql'
-  alias pgstop='sudo systemctl stop postgresql'
-
-  alias rstart='sudo systemctl start redis'
-  alias rstop='sudo systemctl stop redis'
-fi
-
-# Start the rails app and drop into Pry
-alias pryme='bundle exec pry -r ./config/environment'
-
-# Start a nice ASCII art clock
-alias clock='watch -t -n1 "date +%T|figlet"'
-
-# PHP Development server (assuming PHP => 5.4.x)
-alias phpme='php -S localhost:4000'
-
-# Cast
-alias cast='DISPLAY=:0 leapcast --user_agent TV --fullscreen'
-
-function appearin () {
-  local LINK="https://appear.in/$(uuidgen)";
-
-  echo $LINK | pbcopy;
-  echo "Link to $LINK copied to clipboard";
-}
-
 function fury-push () {
   local TAG=$1
   local REV=$(git rev-list -n1 $TAG)
@@ -134,4 +68,4 @@ function fury-push () {
 
 alias v='asdf current'
 
-# vim:set ft=zsh:
+# vim: set ts=2 sw=2 ft=zsh:

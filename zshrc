@@ -1,14 +1,6 @@
-#------------------------------
-# Based off zsh file from Øyvind "Mr.Elendig" Heggstad <mrelendig@har-ikkje.net>
-#------------------------------
-
-# Use vim keybindings
-bindkey -v
-
-# Define a helper for checking if a program exists
-fn_exists () {
-  command -v "$1" >/dev/null 2>&1
-}
+# vim: set ts=2 sw=2 ft=zsh:
+ 
+# Sourced by all interactive shells, both login and non-login
 
 #------------------------------
 # History
@@ -27,11 +19,15 @@ export VISUAL="vim"
 #export PAGER="vimpager"
 export PATH="${PATH}:${HOME}/bin"
 
+# set default fzf command to ripgrep
+# fzf: https://github.com/junegunn/fzf
+# ripgrep: https://github.com/BurntSushi/ripgrep
+export FZF_DEFAULT_COMMAND='rg --files'
+
 #-----------------------------
 # Dircolors
 #-----------------------------
-LS_COLORS='rs=0:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:tw=30;42:ow=34;42:st=37;44:ex=01;32:';
-export LS_COLORS
+export LS_COLORS='rs=0:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:tw=30;42:ow=34;42:st=37;44:ex=01;32:';
 
 #------------------------------
 # Keybindings
@@ -41,30 +37,17 @@ zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
 bindkey -v
 typeset -g -A key
-#bindkey '\e[3~' delete-char
-bindkey '\e[1~' beginning-of-line
-bindkey '\e[4~' end-of-line
-#bindkey '\e[2~' overwrite-mode
-bindkey '^?' backward-delete-char
-bindkey '^[[1~' beginning-of-line
-bindkey '^[[5~' up-line-or-history
-bindkey '^[[3~' delete-char
-bindkey '^[[4~' end-of-line
+
+bindkey '\e[3~' delete-char # del key behaviour
+bindkey '^[[5~' up-line-or-history 
 bindkey '^[[6~' down-line-or-history
 bindkey '^[[A' up-line-or-search
-bindkey '^[[D' backward-char
 bindkey '^[[B' down-line-or-search
-bindkey '^[[C' forward-char
-# for rxvt
-bindkey "\e[8~" end-of-line
-bindkey "\e[7~" beginning-of-line
-# for gnome-terminal
-bindkey "\eOH" beginning-of-line
-bindkey "\eOF" end-of-line
 
 #------------------------------
 # ShellFuncs
 #------------------------------
+
 # -- coloured manuals
 man() {
   env \
@@ -78,20 +61,59 @@ man() {
     man "$@"
 }
 
-# asdf-vm (multi language version manager)
+# asdf - multi language version manager
+# https://github.com/asdf-vm/asdf
 if [ -d ~/.asdf ]; then
-  . "$HOME/.asdf/asdf.sh"
-  # append completions to fpath
+  source "$HOME/.asdf/asdf.sh"
+
+  # include completions
   fpath=(${ASDF_DIR}/completions $fpath)
 fi
+
+# z-zsh
+# https://github.com/agkozak/zsh-z
+[ -s ~/.z.zsh ] && . ~/.z.zsh
+zstyle ':completion:*' menu select
+
+# And the external aliases file
+[ -s ~/.aliases ] && . ~/.aliases
+
+#------------------------------
+# Window title
+#------------------------------
+# set the title of the term when "idle"
+precmd_set_title () {
+  print -Pn "\e]0;[%n@%M][%~]%#\a"
+}
+
+# set the term title to show what is currently being executed
+preexec_set_title () {
+  print -Pn "\e]0;[%n@%M][%~]%# ($1)\a"
+}
+
+# Add the title functions to the function arrays for execution
+precmd_functions+=(precmd_set_title)
+preexec_functions+=(preexec_set_title)
+
+#------------------------------
+# Prompt
+#------------------------------
+autoload -U colors zsh/terminfo
+colors
+[ -s ~/.prompt ] && . ~/.prompt
+[ -s ~/.zsh-syntax-highlighting ] && . ~/.zsh-syntax-highlighting
+
+#-------------------------------------------------------------------------------
+# Completions
+#-------------------------------------------------------------------------------
+zmodload zsh/complist
+autoload -Uz compinit
+compinit
 
 #- buggy
 zstyle ':completion:*:descriptions' format '%U%B%d%b%u'
 zstyle ':completion:*:warnings' format '%BSorry, no matches for: %d%b'
 #-/buggy
-
-zstyle ':completion:*:pacman:*' force-list always
-zstyle ':completion:*:*:pacman:*' menu yes select
 
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
@@ -101,59 +123,17 @@ zstyle ':completion:*:kill:*'   force-list always
 zstyle ':completion:*:*:killall:*' menu yes select
 zstyle ':completion:*:killall:*'   force-list always
 
-#------------------------------
-# Window title
-#------------------------------
-case $TERM in
-  termite|*xterm*|rxvt|rxvt-unicode|rxvt-256color|rxvt-unicode-256color|(dt|k|E)term)
-    precmd () {
-      vcs_info
-      print -Pn "\e]0;[%n@%M][%~]%#\a"
-    }
-    preexec () {
-      print -Pn "\e]0;[%n@%M][%~]%# ($1)\a"
-    }
-    ;;
-  screen|screen-256color)
-    precmd () {
-      vcs_info
-      print -Pn "\e]83;title \"$1\"\a"
-      print -Pn "\e]0;$TERM - (%L) [%n@%M]%# [%~]\a"
-    }
-    preexec () {
-      print -Pn "\e]83;title \"$1\"\a"
-      print -Pn "\e]0;$TERM - (%L) [%n@%M]%# [%~] ($1)\a"
-    }
-    ;;
-esac
-
-#------------------------------
-# Comp stuff
-#------------------------------
-zmodload zsh/complist
-autoload -Uz compinit
-
-compinit
 zstyle :compinstall filename '${HOME}/.zshrc'
 
 #- complete pacman-color the same as pacman
 compdef _pacman pacman-color=pacman
+zstyle ':completion:*:pacman:*' force-list always
+zstyle ':completion:*:*:pacman:*' menu yes select
 
-export FZF_DEFAULT_COMMAND='rg --files'
+# Load completions for npm
+[ -s ~/.npm-completion ] && . ~/.npm-completion
 
-[ -s ~/.prompt ]      && . ~/.prompt
-[ -s ~/.aliases ]     && . ~/.aliases
-[ -s ~/.credentials ] && . ~/.credentials
 
-# Derp (vte; so gnome-terminal's tabs don't suck)
-[ -s /etc/profile.d/vte.sh ] && . /etc/profile.d/vte.sh
-
-# z-zsh
-[ -s ~/.z.sh ]                    && . ~/.z.sh
-[ -s ~/.zsh-syntax-highlighting ] && . ~/.zsh-syntax-highlighting
-[ -s ~/.npm-completion ]          && . ~/.npm-completion
-
-# Machine specific config
+# And finally, provide an entrypoint for anything that's not generally
+# applicable
 [ -s ~/.machine-specific ] && . ~/.machine-specific
-
-# vim: set ts=2 sw=2 et:
