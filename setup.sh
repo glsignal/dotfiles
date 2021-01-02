@@ -16,7 +16,6 @@ touch "$CURRENT_DIR/machine-specific"
 for f in zsh \
          gemrc \
          gitconfig \
-         git_templates \
          gitignore_global \
          machine-specific \
          tmux.conf \
