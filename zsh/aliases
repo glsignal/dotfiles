@@ -13,6 +13,10 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  alias ls='ls -G'
+fi
+
 alias ll='ls -alF'
 alias la='ls -alh'
 alias l='ls -CF'
