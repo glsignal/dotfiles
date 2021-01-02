@@ -2,8 +2,8 @@
 	path = z-zsh
 	url = https://github.com/rupa/z
 [submodule "zsh-syntax-highlighting"]
-	path = zsh-syntax-highlighting
+	path = zsh/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting
 [submodule "zsh-z"]
-	path = zsh-z
+	path = zsh/zsh-z
 	url = https://github.com/agkozak/zsh-z

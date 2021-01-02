@@ -6,18 +6,6 @@ CURRENT_DIR=$(pwd)
 if which git &> /dev/null; then
   echo "Fetching submodules"
   git submodule update --init
-
-	printf '\n'
-  echo "$CURRENT_DIR/git-completion.bash -> $HOME/.git-completion"
-  ln -s "$CURRENT_DIR/git-completion.bash" "$HOME/.git-completion"
-
-	printf '\n'
-  echo "$CURRENT_DIR/z-zsh/z.sh -> $HOME/.z.sh"
-  ln -s "$CURRENT_DIR/z-zsh/z.sh" "$HOME/.z.sh"
-
-	printf '\n'
-  echo "$CURRENT_DIR/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh -> $HOME/.zsh-syntax-highlighting"
-  ln -s "$CURRENT_DIR/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" "$HOME/.zsh-syntax-highlighting"
 else
   echo "Please install git"
 fi
@@ -25,17 +13,14 @@ fi
 echo "Creating machine-specific config file"
 touch "$CURRENT_DIR/machine-specific"
 
-for f in aliases \
+for f in zsh \
          gemrc \
          gitconfig \
          git_templates \
          gitignore_global \
          machine-specific \
-         npm-completion \
-         prompt \
-         ruby-version \
-         screenrc \
          tmux.conf \
+         zshenv \
          zprofile \
          zshrc
 do

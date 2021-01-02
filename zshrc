@@ -72,11 +72,11 @@ fi
 
 # z-zsh
 # https://github.com/agkozak/zsh-z
-[ -s ~/.z.zsh ] && . ~/.z.zsh
+source ~/.zsh/zsh-z/zsh-z.plugin.zsh
 zstyle ':completion:*' menu select
 
 # And the external aliases file
-[ -s ~/.aliases ] && . ~/.aliases
+source ~/.zsh/aliases
 
 #------------------------------
 # Window title
@@ -100,8 +100,8 @@ preexec_functions+=(preexec_set_title)
 #------------------------------
 autoload -U colors zsh/terminfo
 colors
-[ -s ~/.prompt ] && . ~/.prompt
-[ -s ~/.zsh-syntax-highlighting ] && . ~/.zsh-syntax-highlighting
+source ~/.zsh/prompt
+source ~/.zsh/zsh-syntax-highlighting
 
 #-------------------------------------------------------------------------------
 # Completions
@@ -131,7 +131,7 @@ zstyle ':completion:*:pacman:*' force-list always
 zstyle ':completion:*:*:pacman:*' menu yes select
 
 # Load completions for npm
-[ -s ~/.npm-completion ] && . ~/.npm-completion
+source ~/.zsh/npm-completion
 
 
 # And finally, provide an entrypoint for anything that's not generally
