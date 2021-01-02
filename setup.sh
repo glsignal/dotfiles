@@ -1,8 +1,5 @@
 CURRENT_DIR=$(pwd)
 
-# git-completion.bash
-# z.sh
-# zsh-zyntax-highlighting.zsh
 if which git &> /dev/null; then
   echo "Fetching submodules"
   git submodule update --init
@@ -10,7 +7,7 @@ else
   echo "Please install git"
 fi
 
-echo "Creating machine-specific config file"
+echo "Creating empty machine-specific config file"
 touch "$CURRENT_DIR/machine-specific"
 
 for f in zsh \
