@@ -1,5 +1,5 @@
 # vim: set ts=2 sw=2 ft=zsh:
- 
+
 # Sourced by all interactive shells, both login and non-login
 
 #------------------------------
@@ -39,7 +39,7 @@ bindkey -v
 typeset -g -A key
 
 bindkey '\e[3~' delete-char # del key behaviour
-bindkey '^[[5~' up-line-or-history 
+bindkey '^[[5~' up-line-or-history
 bindkey '^[[6~' down-line-or-history
 bindkey '^[[A' up-line-or-search
 bindkey '^[[B' down-line-or-search
@@ -101,7 +101,7 @@ preexec_functions+=(preexec_set_title)
 autoload -U colors zsh/terminfo
 colors
 source ~/.zsh/prompt
-source ~/.zsh/zsh-syntax-highlighting
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 #-------------------------------------------------------------------------------
 # Completions
