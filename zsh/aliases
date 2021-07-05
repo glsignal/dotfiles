@@ -28,7 +28,11 @@ alias be='bundle exec'
 alias tmcopy='tmux show-buffer | pbcopy'
 
 function travis () {
-  open "https://travis-ci.com/$(git remote get-url origin | grep -oE "[^\/:]\w+/[^\.]+")"
+  open "https://travis-ci.com/$(git remote get-url origin | grep -oE "[^\/:][a-zA-Z0-9-]+/[^\.]+")"
+}
+
+function circle () {
+  open "https://app.circleci.com/pipelines/github/$(git remote get-url origin | grep -oE "[^\/:][a-zA-Z0-9-]+/[^\.]+")?branch=$(git branch --show-current)"
 }
 
 # Easily get to git projects
