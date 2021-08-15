@@ -35,6 +35,9 @@ ln -is "$CURRENT_DIR/config/git/template" "$HOME/.config/git/"
 echo "$CURRENT_DIR/config/kitty -> $HOME/.config/"
 ln -is "$CURRENT_DIR/config/kitty" "$HOME/.config/"
 
+echo "$CURRENT_DIR/config/nvim -> $HOME/.config/"
+ln -is "$CURRENT_DIR/config/nvim" "$HOME/.config/"
+
 if [[ "$OSTYPE" == "darwin"* ]]; then
   ln -is "$HOME/.config/kitty/kitty.macos.conf" "$HOME/.config/kitty/kitty.conf"
 else
