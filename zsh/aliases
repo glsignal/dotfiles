@@ -43,9 +43,12 @@ if fn_exists vim; then
   alias vi='vim'
 fi
 
-if fn_exists nvim; then
-  alias vim='nvim'
-fi
+# neovim does not support vim's tty interaction when using bang commands, which
+# is a dealbreaker for now
+#
+# if fn_exists nvim; then
+#   alias vim='nvim'
+# fi
 
 if fn_exists xdg-open; then
   alias open='xdg-open'
