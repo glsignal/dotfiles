@@ -15,6 +15,7 @@ for f in zsh \
          gitconfig \
          gitignore_global \
          machine-specific \
+         psqlrc \
          tmux.conf \
          zshenv \
          zprofile \

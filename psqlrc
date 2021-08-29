@@ -1,0 +1,16 @@
+-- vim: set ft=sql:
+\set QUIET 1
+\pset null '*NULL*'
+
+\set PROMPT1 '%[%033[1m%][%/] # '
+-- Indicate when the input expects a continuation and not a new statement
+\set PROMPT2 '... > '
+
+\timing
+
+\x auto
+\set VERBOSITY verbose
+\set HISTFILE ~/.psql_history- :DBNAME
+\set HISTCONTROL ignoredups
+\set COMP_KEYWORD_CASE upper
+\unset QUIET
