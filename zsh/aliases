@@ -21,6 +21,10 @@ alias ll='ls -alF'
 alias la='ls -alh'
 alias l='ls -CF'
 
+function venv () {
+  source "$HOME/.venv/$1/bin/activate"
+}
+
 alias gst='git status'
 
 alias be='bundle exec'
@@ -43,12 +47,9 @@ if fn_exists vim; then
   alias vi='vim'
 fi
 
-# neovim does not support vim's tty interaction when using bang commands, which
-# is a dealbreaker for now
-#
-# if fn_exists nvim; then
-#   alias vim='nvim'
-# fi
+if fn_exists nvim; then
+  alias vim='nvim'
+fi
 
 if fn_exists xdg-open; then
   alias open='xdg-open'
@@ -67,9 +68,9 @@ if fn_exists python; then
   function webme () {
     python_major=$(python -V 2>&1 | cut -d " " -f 2 | cut -d "." -f 1)
     if [ $python_major -lt 3 ]; then
-      python -m SimpleHTTPServer
+      python -m SimpleHTTPServer $*
     else
-      python -m http.server
+      python -m http.server $*
     fi
   }
 fi

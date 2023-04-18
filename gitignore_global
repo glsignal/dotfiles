@@ -3,6 +3,10 @@
 .ruby-gemset
 .DS_Store
 
+# Terraform
+*.tfstate
+*.tfstate.*
+
 # dev shite
 .tool-versions
 # Dockerfile
@@ -17,3 +21,10 @@ docker-shared/
 public/packs
 
 dump.rdb
+
+workspace.tmux.sh
+
+# for now, selenium ide files
+*.side
+
+/scratch/

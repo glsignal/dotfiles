@@ -63,11 +63,16 @@ man() {
 
 # asdf - multi language version manager
 # https://github.com/asdf-vm/asdf
-if [ -d ~/.asdf ]; then
-  source "$HOME/.asdf/asdf.sh"
+# if [ -d ~/.asdf ]; then
+#   source "$HOME/.asdf/asdf.sh"
+#
+#   # include completions
+#   fpath=(${ASDF_DIR}/completions $fpath)
+# fi
 
-  # include completions
-  fpath=(${ASDF_DIR}/completions $fpath)
+# rtx - lang manager
+if fn_exists rtx; then
+  eval "$(rtx activate zsh)"
 fi
 
 # z-zsh
