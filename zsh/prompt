@@ -1,6 +1,7 @@
 # vim: set ts=2 sw=2 ft=zsh:
 
-source ~/.zsh/gitstatus/gitstatus.prompt.zsh
+source ~/.zsh/gitstatus/gitstatus.plugin.zsh
+source ~/.zsh/gitstatus.prompt.zsh
 
 function pr_user() {
   echo "%(!.%{$fg[red]%}.%{$fg[white]%})%(!.[! %n !].%n)%{$terminfo[sgr0]%}"
