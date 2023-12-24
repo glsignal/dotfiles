@@ -1,11 +1,6 @@
 # vim: set ts=2 sw=2 ft=zsh:
 
-autoload -Uz vcs_info
-precmd_functions+=(vcs_info)
-
-zstyle ':vcs_info:*' enable git hg
-zstyle ':vcs_info:*' check-for-changes true
-zstyle ':vcs_info:git*' formats "%{$terminfo[sgr0]%}%{${fg[white]}%}%b%{$terminfo[sgr0]%}[%{${fg[red]}%}%u%{${fg[yellow]}%}%c%{${fg[white]}%}%m%{$terminfo[sgr0]]%}"
+source ~/.zsh/gitstatus/gitstatus.prompt.zsh
 
 function pr_user() {
   echo "%(!.%{$fg[red]%}.%{$fg[white]%})%(!.[! %n !].%n)%{$terminfo[sgr0]%}"
@@ -26,7 +21,7 @@ function setprompt() {
 
   # Check if we are on SSH or not
   # set the prompt
-  PS1=$'\n$(pr_user) :: %{$fg[blue]%}%~%{$terminfo[sgr0]%} ${vcs_info_msg_0_} \n$(pr_user_op) '
+  PS1=$'\n$(pr_user) :: %{$fg[blue]%}%~%{$terminfo[sgr0]%} [${GITSTATUS_PROMPT}] \n$(pr_user_op) '
   PS2=$'%_>'
   RPROMPT=$'%!'
 }
