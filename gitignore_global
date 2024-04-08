@@ -33,3 +33,4 @@ workspace.tmux.sh
 .local-overrides/
 
 .rtx.local.toml
+.mise.local.toml

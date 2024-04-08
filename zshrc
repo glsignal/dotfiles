@@ -70,9 +70,9 @@ man() {
 #   fpath=(${ASDF_DIR}/completions $fpath)
 # fi
 
-# rtx - lang manager
-if fn_exists rtx; then
-  eval "$(rtx activate zsh)"
+# mise - lang manager
+if fn_exists mise; then
+  eval "$(mise activate zsh)"
 fi
 
 # z-zsh
