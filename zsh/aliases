@@ -64,16 +64,14 @@ fi
 # ==============================================================================
 
 # Start webserver in current directory
-if fn_exists python; then
-  function webme () {
-    python_major=$(python -V 2>&1 | cut -d " " -f 2 | cut -d "." -f 1)
-    if [ $python_major -lt 3 ]; then
-      python -m SimpleHTTPServer $*
-    else
-      python -m http.server $*
-    fi
-  }
-fi
+function webme () {
+  python_major=$(python -V 2>&1 | cut -d " " -f 2 | cut -d "." -f 1)
+  if [ $python_major -lt 3 ]; then
+    python -m SimpleHTTPServer $*
+  else
+    python -m http.server $*
+  fi
+}
 
 function fury-push () {
   local TAG=$1
