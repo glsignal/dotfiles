@@ -142,3 +142,5 @@ source ~/.zsh/npm-completion
 # And finally, provide an entrypoint for anything that's not generally
 # applicable
 [ -s ~/.machine-specific ] && . ~/.machine-specific
+
+export STM32_PRG_PATH=/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOs/bin

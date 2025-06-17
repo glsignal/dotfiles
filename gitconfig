@@ -1,15 +1,10 @@
 # vim: set ft=gitconfig ts=2 sw=2:
 [init]
+  defaultBranch = main
   templateDir = ~/.config/git/template/
-[pager]
-  color = true
-[status]
-  color = true
-[diff]
-  color = true
 [user]
   name = Greg Signal
-  email = greg@cardboardstraw.com
+  email = gregory.signal@alasco.de
 [alias]
   st = status
   ci = commit
@@ -17,8 +12,25 @@
   co = checkout
   df = diff
   hist = log --pretty=format:\"%h %ad (%cr) | %s%C(auto)%d%Creset [%an]\" --graph --date=short
+  tree = log --all --decorate --oneline --graph
   wdiff = diff --word-diff
   wshow = show --word-diff
+[pager]
+  color = true
+[status]
+  color = true
+[diff]
+  algorithm = histogram
+  colorMoved = plain
+  mnemonicPrefix = true
+  renames = true
+[branch]
+  sort = -committerdate
+[tag]
+  sort = version:refname
+[merge]
+  tool = vimdiff
+  conflictstyle = zdiff3
 [ignore]
   filemode = false
 [core]
@@ -26,12 +38,18 @@
 [checkout]
   defaultRemote = origin
 [push]
-  default = current
+  default = simple
   autoSetupRemote = true
-[merge]
-  tool = vimdiff
+  followTags = true
+[fetch]
+  prune = true
+  pruneTags = true
+  all = true
 [pull]
   ff = only
+[rerere]
+  enabled = true
+  autoupdate = true
 [branch "master"]
   remote = origin
   merge = refs/heads/master

@@ -22,3 +22,4 @@ if fn_exists xsel; then
     alias pbpaste='xsel --clipboard --output'
   fi
 fi
+. "$HOME/.cargo/env"
