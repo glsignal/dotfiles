@@ -1,0 +1,59 @@
+font-size = 12
+font-family = JetBrains Mono Regular
+font-family-bold = JetBrains Mono Bold
+font-family-italic = JetBrains Mono Italic
+font-family-bold-italic = JetBrains Mono Bold Italic
+
+# color scheme
+background = #292d3e
+foreground = #bfc7d5
+
+# black
+palette = 0=#373b41
+palette = 8=#535353
+
+# red
+palette = 1=#ff869a
+palette = 9=#fa546f
+
+# green
+palette = 2=#c3e88d
+palette = 10=#9ee03d
+
+# yellow
+palette = 3=#ffcb6b
+palette = 11=#faa507
+
+# blue
+palette = 4=#82b1ff
+palette = 12=#387ef2
+
+# magenta
+palette = 5=#c792ea
+palette = 13=#ab48ec
+
+# cyan
+palette = 6=#89ddff
+palette = 14=#00b6ff
+
+# white
+palette = 7=#c5c8c6
+palette = 15=#e7ebe8
+
+
+cursor-color = #f6f7ec
+cursor-text = #292d3e
+selection-background = #c4c5b5
+selection-foreground = #292d3e
+
+# keybind
+keybind = global:cmd+`=toggle_quick_terminal
+
+command = /opt/homebrew/bin/tmux
+
+# Set locale env var so that tmux knows to deal with UTF-8 characters
+# env                     LC_ALL=en_US.UTF-8
+# env                     LANG=en_US.UTF-8
+
+# Include the brew bin dir in our path
+# env                     PATH=$PATH:/usr/local/bin
