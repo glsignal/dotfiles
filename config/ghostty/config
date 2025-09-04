@@ -47,7 +47,7 @@ selection-background = #c4c5b5
 selection-foreground = #292d3e
 
 # keybind
-keybind = global:cmd+`=toggle_quick_terminal
+keybind = cmd+enter=unbind # disable the default toggle_fullscreen keybinding
 
 command = /opt/homebrew/bin/tmux
 
