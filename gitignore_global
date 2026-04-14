@@ -41,4 +41,6 @@ workspace.tmux.sh
 .env
 .envrc
 
-.npmrc
+# .npmrc
+
+*.ignore.*

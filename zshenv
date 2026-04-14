@@ -23,3 +23,6 @@ if fn_exists xsel; then
   fi
 fi
 . "$HOME/.cargo/env"
+
+export DYLD_FALLBACK_LIBRARY_PATH="/opt/homebrew/lib"
+
