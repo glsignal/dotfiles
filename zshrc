@@ -14,8 +14,8 @@ HISTCONTROL=ignoredups:ignorespace
 # Variables
 #------------------------------
 export BROWSER="firefox"
-export EDITOR="vim"
-export VISUAL="vim"
+export EDITOR="nvim"
+export VISUAL="nvim"
 #export PAGER="vimpager"
 export PATH="${PATH}:${HOME}/bin"
 
