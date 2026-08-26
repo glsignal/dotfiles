@@ -49,7 +49,7 @@ selection-foreground = #292d3e
 # keybind
 keybind = global:cmd+`=toggle_quick_terminal
 
-command = /opt/homebrew/bin/zellij
+command = zsh --login -c zellij
 
 # Set locale env var so that tmux knows to deal with UTF-8 characters
 # env                     LC_ALL=en_US.UTF-8
