@@ -41,6 +41,10 @@ keybinds clear-defaults=true {
         bind "j" { MoveFocus "down"; SwitchToMode "locked"; }
         bind "k" { MoveFocus "up"; SwitchToMode "locked"; }
         bind "l" { MoveFocus "right"; SwitchToMode "locked"; }
+        bind "left" { MoveFocus "left"; SwitchToMode "locked"; }
+        bind "down" { MoveFocus "down"; SwitchToMode "locked"; }
+        bind "up" { MoveFocus "up"; SwitchToMode "locked"; }
+        bind "right" { MoveFocus "right"; SwitchToMode "locked"; }
 
         bind "z" { ToggleFocusFullscreen; SwitchToMode "locked"; }
 
@@ -234,6 +238,7 @@ keybinds clear-defaults=true {
     }
     shared_except "locked" "entersearch" "renametab" "renamepane" {
         bind "esc" { SwitchToMode "locked"; }
+        bind "Ctrl c" { SwitchToMode "locked"; }
     }
     shared_except "locked" "entersearch" "search" "renametab" "renamepane" "session" {
         bind "o" { SwitchToMode "session"; }
